@@ -14,6 +14,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        if SecurityUtils.shared.isJailBroken {
+            // Prevent app from launching by using a popUp or a ViewController indicating that device is Jailbroken.
+        }
         return true
     }
 
