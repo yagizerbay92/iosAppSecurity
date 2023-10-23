@@ -11,9 +11,18 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        //save data example
+        let data = KeyChain.shared.stringToNSDATA(string: "abc")
+        let status = KeyChain.shared.save(key: "TestString", data: data)
+        print("status = \(status)")
+        
+        
+        //get data example
+        if let receivedData = KeyChain.shared.load(key: "TestString") {
+            let result = KeyChain.shared.NSDATAtoString(data: receivedData)
+            print("Result = \(result)")
+        }
     }
-
-
 }
 
